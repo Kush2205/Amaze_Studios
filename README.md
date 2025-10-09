@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Tales of Annapurna - Landing Page
 
-## Getting Started
+A stunning, animated landing page for **The Tales of Annapurna** by Amaze Studios, built with Next.js 15, React 19, Tailwind CSS 4, and Framer Motion.
 
-First, run the development server:
+## 🎮 Features
+
+- **Modern Tech Stack**: Next.js 15 with Turbopack, React 19, TypeScript
+- **Stunning Animations**: Powered by Framer Motion (motion library)
+- **Beautiful Design**: 
+  - Gradient text effects
+  - Glass morphism
+  - Particle backgrounds
+  - Smooth scroll animations
+  - Parallax effects
+  - Hover interactions
+- **Responsive Design**: Mobile-first approach, works on all devices
+- **Wishlist System**: Local storage with Google Sheets sync
+- **SEO Optimized**: Proper meta tags and semantic HTML
+- **Custom Color Scheme**: Orange, purple, and gold gradients
+
+## 🚀 Getting Started
 
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the landing page.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎨 Color Scheme
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Primary**: Orange (#ff4500) - Energy and excitement
+- **Secondary**: Purple (#7209b7) - Mystery and royalty
+- **Accent**: Gold (#ffd700) - Divine and legendary
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+amaze_studios/
+├── app/
+│   ├── components/
+│   │   ├── Navigation.tsx         # Top navigation bar
+│   │   ├── ParticleBackground.tsx # Animated particle effect
+│   │   ├── HeroSection.tsx        # Main hero with title & CTA
+│   │   ├── TrailerSection.tsx     # Video trailer embed
+│   │   ├── GameDescription.tsx    # Game features grid
+│   │   ├── WishlistSection.tsx    # Email collection form
+│   │   ├── CommunitySection.tsx   # Discord community
+│   │   └── Footer.tsx             # Footer with social links
+│   ├── globals.css                # Global styles & animations
+│   ├── layout.tsx                 # Root layout
+│   └── page.tsx                   # Main page component
+└── package.json
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Animation Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Fade In**: Elements fade in as you scroll
+2. **Stagger Text**: Words appear one by one
+3. **Parallax Scrolling**: Background moves at different speeds
+4. **Particle System**: Animated particles in the background
+5. **Hover Effects**: Smooth scale and glow on hover
+6. **Gradient Shifts**: Continuously shifting color gradients
+7. **Glass Morphism**: Frosted glass effect on cards
 
-## Deploy on Vercel
+## 🖼️ Adding Images
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Place images in the `public` folder:
+- `poster.jpg`, `company-logo.png`, `pc-badge.png`, `xbox-badge.png`, `ps5-badge.png`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+
+© 2025 Amaze Studios. All rights reserved.
+
+---
+
+Built with ❤️ using Next.js and Framer Motion
