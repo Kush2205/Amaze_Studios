@@ -7,6 +7,7 @@ import Button from '../ui/button';
 import xbox from "../../public/xbox2.svg"
 import ps from "../../public/ps.svg"
 import pc from "../../public/pc.svg"
+import ScrollIndicator from '../ui/ScrollIndicator';
 const cinzel = Cinzel({ subsets: ['latin'] })
 
 function LandingPage() {
@@ -40,7 +41,6 @@ function LandingPage() {
                 transitionDelay={3.9}
             />
             <div className='flex mt-6 gap-x-4'>
-
                 <Button
                     icon={<img src={pc.src} alt="PC Icon" className="w-6 h-6" />}
                     className='px-4 py-2 mt-5 text-xl text-black rounded hover:cursor-pointer flex items-center bg-white'
@@ -49,7 +49,6 @@ function LandingPage() {
                     transitionDuration={0.7}
                     transitionDelay={4.2}
                 />
-
                 <Button
                     icon={<img src={ps.src} alt="PlayStation Icon" className="w-6 h-6" />}
                     className='px-4 py-2 mt-5 text-xl text-black rounded hover:cursor-pointer flex items-center bg-white'
@@ -58,20 +57,31 @@ function LandingPage() {
                     transitionDuration={0.7}
                     transitionDelay={4.2}
                 />
-
                 <Button
                     icon={<img src={xbox.src} alt="Xbox Icon" className="w-6 h-6" />}
                     className='px-4 py-2 mt-5 text-xl text-black bg-white rounded hover:cursor-pointer flex items-center'
-
                     initialOpacity={0}
                     animateOpacity={1}
                     transitionDuration={0.7}
                     transitionDelay={4.2}
                     hoverScale={1.1}
                 />
-
-
             </div>
+            
+            <motion.div 
+                className="absolute bottom-8"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 5.3 }}
+                style={{ filter: "drop-shadow(0 0 5px rgba(255, 95, 0, 0.7))" }}
+            >
+                <ScrollIndicator 
+                    width={35} 
+                    height={55} 
+                    color="#FF5F00" 
+                    scrollLineColor="#FFFFFF" 
+                />
+            </motion.div>
         </div>
     )
 }
