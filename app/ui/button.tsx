@@ -15,7 +15,7 @@ interface ButtonProps {
   hoverScale?: number;
 }
 
-function Button({ label, onClick, disabled, style, className, icon, initialOpacity, animateOpacity, transitionDuration, transitionDelay, hoverScale }: ButtonProps) {
+function Button({ label, onClick, disabled,className, icon, initialOpacity, animateOpacity, transitionDuration, transitionDelay, hoverScale }: ButtonProps) {
   return (
     <motion.button
         initial={{ opacity: initialOpacity ?? 0, scale: 1 }}
