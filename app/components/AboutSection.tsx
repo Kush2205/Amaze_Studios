@@ -17,22 +17,28 @@ function TrailerSection() {
   
   return (
     <div ref={ref} className='w-full h-[300vh]'>
-      <div className='sticky top-0 h-screen overflow-hidden flex flex-col'>
+      <div className='sticky top-0 h-screen overflow-hidden flex flex-col py-4 md:py-0'>
         
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1 overflow-hidden flex items-center">
           <motion.div 
             style={{ x }} 
-            className='w-[300vw] h-full flex'
+            className='w-[300vw] h-full flex items-center'
           >
-            <Card title='Enter the Eternal City'
-              description='The Tales of Annapurna by Amaze Studios is a cinematic action-adventure set in Kashi, where myth and legend awaken. Built with scanned real-world assets, every ghat, alley, and temple immerses you in the soul of the eternal city.'
-            />
-            <Card title='Awaken Your Destiny'
-              description='When shadows rise and Rakshasas return, the balance of the world hangs by a thread. You step into the journey of Sati, a common girl, unaware of her divine destiny. Through her eyes, you will face demons born of ancient tales and uncover truths hidden in sacred myths.'
-            />
-            <Card title='Master Ancient Combat'
-              description='Combat flows with the grace and power of Kalarippayattu, an ancient martial art brought to life with unprecedented intensity. Every battle, every choice, draws you closer to the divine spark waiting within. This is not just an adventure—it is a myth reborn, a story of destiny unfolding in the heart of India eternal city.'
-            />
+            <div className="w-screen h-full flex items-center justify-center">
+              <Card title='Enter the Eternal City'
+                description='The Tales of Annapurna by Amaze Studios is a cinematic action-adventure set in Kashi, where myth and legend awaken. Built with scanned real-world assets, every ghat, alley, and temple immerses you in the soul of the eternal city.'
+              />
+            </div>
+            <div className="w-screen h-full flex items-center justify-center">
+              <Card title='Awaken Your Destiny'
+                description='When shadows rise and Rakshasas return, the balance of the world hangs by a thread. You step into the journey of Sati, a common girl, unaware of her divine destiny. Through her eyes, you will face demons born of ancient tales and uncover truths hidden in sacred myths.'
+              />
+            </div>
+            <div className="w-screen h-full flex items-center justify-center">
+              <Card title='Master Ancient Combat'
+                description='Combat flows with the grace and power of Kalarippayattu, an ancient martial art brought to life with unprecedented intensity. Every battle, every choice, draws you closer to the divine spark waiting within. This is not just an adventure—it is a myth reborn, a story of destiny unfolding in the heart of India eternal city.'
+              />
+            </div>
           </motion.div>
         </div>
         
