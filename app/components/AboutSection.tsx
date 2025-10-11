@@ -42,14 +42,14 @@ function TrailerSection() {
           </motion.div>
         </div>
         
-        {/* Divider in a separate fixed area at bottom */}
-        <div className="w-full py-6 flex justify-center items-center z-10 mb-10">
+        
+        <div className="w-full py-6 flex justify-center items-center z-10 mb-10 px-8">
           <motion.div
             style={{ 
               width: dividerWidth,
               boxShadow: '0 0 10px rgba(255, 95, 0, 0.7), 0 0 20px rgba(255, 128, 0, 0.4)'
             }}
-            className="rounded-full h-[2px] bg-orange-500 max-w-xs sm:max-w-sm md:max-w-md"
+            className="rounded-full h-[2px] bg-orange-500"
           />
         </div>
       </div>
