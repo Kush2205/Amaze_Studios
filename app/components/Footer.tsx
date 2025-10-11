@@ -160,7 +160,7 @@ function Footer() {
           </motion.div>
         </div>
 
-        {/* Bottom copyright section */}
+       
         <motion.div 
           className="text-center text-sm text-gray-500 pt-6 border-t border-gray-800"
           initial={{ opacity: 0 }}

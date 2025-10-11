@@ -19,17 +19,17 @@ interface CardProps {
 function Card({ title, description, imageSrc, imageAlt, reverse = false, className, children }: CardProps) {
   return (
     <motion.div 
-      className={`w-[100vw] snap-center px-4 md:px-12 lg:px-16 py-4 md:py-8 flex items-center justify-center ${className}`}
+      className={`w-full h-full snap-center px-4 md:px-12 lg:px-16 py-4 md:py-8 flex items-center justify-center ${className}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
       <div className="w-full max-w-5xl mx-auto">
-        <div className="flex flex-col space-y-3 md:space-y-8">
+        <div className="flex flex-col space-y-3 md:space-y-6 w-full">
           
          
-          <div className="w-full flex flex-col justify-center space-y-2 md:space-y-4">
+          <div className="w-full flex flex-col justify-center space-y-2 md:space-y-4 flex-shrink-0">
             {title && (
               <motion.h2 
                 className={`text-xl sm:text-2xl md:text-4xl lg:text-5xl text-center font-bold ${cinzel.className} text-white leading-tight`}
@@ -55,21 +55,23 @@ function Card({ title, description, imageSrc, imageAlt, reverse = false, classNa
             </motion.div>
             
             {description && (
-              <motion.p 
-                className={`text-gray-300 text-center text-sm sm:text-base md:text-lg lg:text-xl ${cinzel.className} leading-relaxed max-w-3xl mx-auto px-2 md:px-4`}
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
-                viewport={{ once: true }}
-              >
-                {description}
-              </motion.p>
+              <div className="overflow-y-auto min-h-[12vh] max-h-[12vh] md:min-h-0 md:max-h-none scrollbar-thin scrollbar-thumb-orange-500/50 scrollbar-track-transparent flex-shrink-0">
+                <motion.p 
+                  className={`text-gray-300 text-center text-sm sm:text-base md:text-lg lg:text-xl ${cinzel.className} leading-relaxed max-w-3xl mx-auto px-2 md:px-4`}
+                  initial={{ y: 30, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
+                  {description}
+                </motion.p>
+              </div>
             )}
           </div>
           
          
           <motion.div 
-            className="w-full h-[25vh] sm:h-[30vh] md:h-[40vh] relative overflow-hidden rounded-xl border border-orange-500/30"
+            className="w-full h-[25vh] sm:h-[30vh] md:h-[40vh] relative overflow-hidden rounded-xl border border-orange-500/30 flex-shrink-0"
             style={{ 
               boxShadow: '0 0 30px rgba(255, 95, 0, 0.2), 0 0 60px rgba(255, 128, 0, 0.1)'
             }}

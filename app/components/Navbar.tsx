@@ -154,7 +154,37 @@ function Navbar() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className='md:hidden fixed top-0 right-0 w-full h-screen bg-black/95 backdrop-blur-lg z-20 flex flex-col items-center justify-center'
                     >
-                        <div className="relative w-full h-full flex flex-col items-center justify-center gap-8 px-8">
+                        {/* Close Button */}
+                        <motion.button
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{ duration: 0.2 }}
+                            className='absolute top-6 right-6 z-30 w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors'
+                            onClick={() => setIsMenuOpen(false)}
+                            aria-label="Close menu"
+                        >
+                            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </motion.button>
+
+                        {/* Logo at Top Center */}
+                        <motion.div
+                            initial={{ y: -50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: -50, opacity: 0 }}
+                            transition={{ duration: 0.3, delay: 0.1 }}
+                            className='absolute top-16 left-1/2 -translate-x-1/2 cursor-pointer'
+                            onClick={() => {
+                                scrollToSection('home');
+                                setIsMenuOpen(false);
+                            }}
+                        >
+                            <img src={amaze.src} alt="Amaze Studios Logo" className="w-16 h-16 bg-white rounded-xl shadow-lg" />
+                        </motion.div>
+
+                        <div className="relative w-full h-full flex flex-col items-center justify-center gap-8 px-8 pt-24">
                             {/* Animated border */}
                             <motion.div
                                 style={{

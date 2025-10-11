@@ -15,7 +15,7 @@ function LandingPage() {
         <div className='flex flex-col items-center justify-center h-screen text-white px-4 sm:px-6 md:px-8'>
             <ParticleBackground />
             <div style={{ fontFamily: cinzel.style.fontFamily }} className='relative max-w-5xl'>
-                <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.4, delay: 0.5 }} className='text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold animate-pulse-glow text-center'>The Tales of Annapurna</motion.h1>
+                <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.4, delay: 0.5 }} className='text-white text-3xl sm:text-3xl md:text-3xl lg:text-7xl font-semibold animate-pulse-glow text-center'>The Tales of Annapurna</motion.h1>
                 <motion.div
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: 1 }}
