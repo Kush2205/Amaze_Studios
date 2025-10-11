@@ -13,17 +13,44 @@ function NotifyForm({ onSubmit }: NotifyFormProps) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (name && email) {
-      if (onSubmit) onSubmit(name, email)
-      setIsSubmitted(true)
-      setTimeout(() => {
-        setName('')
-        setEmail('')
-        setIsSubmitted(false)
-      }, 3000)
+      setIsSubmitting(true)
+      setError('')
+      
+      try {
+        // Submit to Google Sheets via API
+        const response = await fetch('/api/wishlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name, email }),
+        })
+        
+        const data = await response.json()
+        
+        if (data.success) {
+          if (onSubmit) onSubmit(name, email)
+          setIsSubmitted(true)
+          setTimeout(() => {
+            setName('')
+            setEmail('')
+            setIsSubmitted(false)
+          }, 3000)
+        } else {
+          setError('Failed to submit. Please try again.')
+        }
+      } catch (err) {
+        console.error('Error submitting form:', err)
+        setError('Failed to submit. Please try again.')
+      } finally {
+        setIsSubmitting(false)
+      }
     }
   }
   
@@ -104,17 +131,27 @@ function NotifyForm({ onSubmit }: NotifyFormProps) {
           <div className="pt-2">
             <motion.button
               type="submit"
-              className="w-full py-3 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-md font-medium"
-              whileHover={{ 
+              disabled={isSubmitting}
+              className="w-full py-3 bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-md font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              whileHover={ !isSubmitting ? { 
                 scale: 1.02,
                 boxShadow: "0 0 15px rgba(255, 95, 0, 0.7)" 
-              }}
-              whileTap={{ scale: 0.98 }}
+              } : {}}
+              whileTap={!isSubmitting ? { scale: 0.98 } : {}}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              Notify Me
+              {isSubmitting ? 'Submitting...' : 'Notify Me'}
             </motion.button>
           </div>
+          {error && (
+            <motion.p 
+              className="text-red-400 text-sm text-center mt-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              {error}
+            </motion.p>
+          )}
         </motion.form>
       ) : (
         <motion.div 

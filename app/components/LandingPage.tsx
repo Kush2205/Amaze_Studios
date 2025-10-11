@@ -1,5 +1,5 @@
 "use client";
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from "motion/react"
 import { Cinzel } from 'next/font/google'
 import ParticleBackground from './ParticleBackground';
@@ -11,6 +11,26 @@ import ScrollIndicator from '../ui/ScrollIndicator';
 const cinzel = Cinzel({ subsets: ['latin'] })
 
 function LandingPage() {
+    const [wishlistCount, setWishlistCount] = useState(0)
+
+    useEffect(() => {
+        // Fetch wishlist count
+        fetch('/api/wishlist')
+            .then(res => res.json())
+            .then(data => setWishlistCount(data.count || 0))
+            .catch(err => console.error('Error fetching wishlist count:', err))
+    }, [])
+
+    const scrollToCommunity = () => {
+        const element = document.getElementById('community');
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+
     return (
         <div className='flex flex-col items-center justify-center h-screen text-white px-4 sm:px-6 md:px-8'>
             <ParticleBackground />
@@ -32,6 +52,23 @@ function LandingPage() {
                 <motion.span className='text-3xl sm:text-4xl animate-float hidden sm:inline' initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3.0 }}>•</motion.span>
                 <motion.h3 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8, delay: 3.0 }}>A city eternal</motion.h3>
             </div>
+            
+            {/* Wishlist Count */}
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 3.5 }}
+                className='mt-4 text-orange-400 text-sm sm:text-base'
+                style={{ fontFamily: cinzel.style.fontFamily }}
+            >
+                <motion.span
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                >
+                    🔥 {wishlistCount} adventurers have already wishlisted!
+                </motion.span>
+            </motion.div>
+
             <Button
                 label='Wishlist Now'
                 className='px-6 py-2 mt-6 text-lg sm:text-xl bg-red-500 text-white rounded hover:bg-red-600 hover:cursor-pointer'
@@ -39,6 +76,7 @@ function LandingPage() {
                 animateOpacity={1}
                 transitionDuration={0.5}
                 transitionDelay={3.9}
+                onClick={scrollToCommunity}
             />
             <div className='flex flex-wrap justify-center mt-6 gap-3 sm:gap-4'>
                 <Button
