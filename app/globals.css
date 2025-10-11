@@ -4,6 +4,10 @@
     background-color: black;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 @keyframes pulse-glow {
   0%, 100% { 
     text-shadow: 

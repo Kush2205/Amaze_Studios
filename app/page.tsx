@@ -3,17 +3,27 @@ import React from 'react'
 import LandingPage from './components/LandingPage'
 import Navbar from './components/Navbar'
 import Divider from './ui/divider'
-import Trailer from './components/TrailerSection'
+import About from './components/AboutSection'
+import Trailer from './components/Trailer'
 import Footer from './components/Footer'
 function page() {
   return (
     <>
     <Navbar />
-    <LandingPage />
+    <section id="home">
+      <LandingPage />
+    </section>
     <Divider animate={true} width='80%' glowColor='#FF8000' glowIntensity={4} />
-    <Trailer />
+    <section id="about">
+      <About />
+    </section>
+    <section id="trailer">
+      <Trailer />
+    </section>
     <Divider animate={true} width='80%' glowColor='#FF8000' glowIntensity={4} />
-    <Footer />
+    <section id="community">
+      <Footer />
+    </section>
     </>
     
   )

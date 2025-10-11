@@ -10,6 +10,17 @@ interface NavBarItemProps {
 
 function Navbar() {
 
+    // Smooth scroll to section
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    };
+
     function NavBarItem({ itemLabel, onClickHandler }: NavBarItemProps) {
         return (
             <div className='flex flex-col items-center group relative'>
@@ -70,14 +81,14 @@ function Navbar() {
                     transition={{ duration: 0.7, delay: 4.5, ease: "easeInOut" }}
                     className="rounded-full flex gap-x-20 p-5 px-6 items-center relative z-10"
                 >
-                    <div className='flex items-center justify-center'>
+                    <div className='flex items-center justify-center cursor-pointer' onClick={() => scrollToSection('home')}>
                         <img src={amaze.src} alt="Amaze Studios Logo" className="w-12 h-12 bg-white rounded-xl" />
                     </div>
                     <div className='flex gap-x-8'>
-                        <NavBarItem itemLabel='Home' onClickHandler={() => { }} />
-                        <NavBarItem itemLabel='About' onClickHandler={() => { }} />
-                        <NavBarItem itemLabel='Trailer' onClickHandler={() => { }} />
-                        <NavBarItem itemLabel='Community' onClickHandler={() => { }} />
+                        <NavBarItem itemLabel='Home' onClickHandler={() => scrollToSection('home')} />
+                        <NavBarItem itemLabel='About' onClickHandler={() => scrollToSection('about')} />
+                        <NavBarItem itemLabel='Trailer' onClickHandler={() => scrollToSection('trailer')} />
+                        <NavBarItem itemLabel='Community' onClickHandler={() => scrollToSection('community')} />
                     </div>
                 </motion.div>
             </div>
