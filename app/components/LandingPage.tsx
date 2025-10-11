@@ -13,12 +13,27 @@ const cinzel = Cinzel({ subsets: ['latin'] })
 function LandingPage() {
     const [wishlistCount, setWishlistCount] = useState(0)
 
-    useEffect(() => {
-        // Fetch wishlist count
+    const fetchCount = () => {
         fetch('/api/wishlist')
             .then(res => res.json())
             .then(data => setWishlistCount(data.count || 0))
             .catch(err => console.error('Error fetching wishlist count:', err))
+    }
+
+    useEffect(() => {
+        // Initial fetch
+        fetchCount()
+
+        // Listen for wishlist updates
+        const handleWishlistUpdate = () => {
+            fetchCount()
+        }
+
+        window.addEventListener('wishlistUpdated', handleWishlistUpdate)
+
+        return () => {
+            window.removeEventListener('wishlistUpdated', handleWishlistUpdate)
+        }
     }, [])
 
     const scrollToCommunity = () => {
@@ -65,7 +80,14 @@ function LandingPage() {
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                 >
-                    🔥 {wishlistCount} adventurers have already wishlisted!
+                    🔥 <motion.span
+                        key={wishlistCount}
+                        initial={{ scale: 1.5, color: '#ff8c00' }}
+                        animate={{ scale: 1, color: '#fb923c' }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                        {wishlistCount}
+                    </motion.span> adventurers have already wishlisted!
                 </motion.span>
             </motion.div>
 

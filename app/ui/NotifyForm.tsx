@@ -37,6 +37,10 @@ function NotifyForm({ onSubmit }: NotifyFormProps) {
         if (data.success) {
           if (onSubmit) onSubmit(name, email)
           setIsSubmitted(true)
+          
+          // Dispatch custom event to update wishlist count
+          window.dispatchEvent(new CustomEvent('wishlistUpdated'))
+          
           setTimeout(() => {
             setName('')
             setEmail('')
