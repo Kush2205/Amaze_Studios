@@ -45,6 +45,25 @@ body::-webkit-scrollbar {
     display: none !important;
 }
 
+/* Hide scrollbar in overflow containers (like card descriptions) */
+div::-webkit-scrollbar,
+.overflow-y-auto::-webkit-scrollbar,
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-auto::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Firefox scrollbar hiding for overflow containers */
+div,
+.overflow-y-auto,
+.overflow-x-auto,
+.overflow-auto {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
 @keyframes pulse-glow {
   0%, 100% { 
     text-shadow: 
