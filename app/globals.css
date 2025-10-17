@@ -8,26 +8,25 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Hide scrollbar for all browsers */
-/* Chrome, Safari, Edge, Opera */
+
 ::-webkit-scrollbar {
     display: none;
     width: 0;
     height: 0;
 }
 
-/* Firefox */
+
 * {
     scrollbar-width: none;
     scrollbar-color: transparent transparent;
 }
 
-/* IE and Edge Legacy */
+
 body {
     -ms-overflow-style: none;
 }
 
-/* Additional cross-browser support */
+
 html {
     overflow: -moz-scrollbars-none;
     -ms-overflow-style: none;
@@ -45,7 +44,7 @@ body::-webkit-scrollbar {
     display: none !important;
 }
 
-/* Hide scrollbar in overflow containers (like card descriptions) */
+
 div::-webkit-scrollbar,
 .overflow-y-auto::-webkit-scrollbar,
 .overflow-x-auto::-webkit-scrollbar,
