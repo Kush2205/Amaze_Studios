@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "The Tales of Annapurna",
-  description: "An epic journey through the mystical lands",
+  description: "An epic journey through the mystical lands.",
 };
 
 export default function RootLayout({
