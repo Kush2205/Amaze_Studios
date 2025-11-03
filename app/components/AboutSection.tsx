@@ -1,4 +1,4 @@
-import React, { use } from 'react'
+
 import Card from '../ui/Card'
 import { useRef } from 'react'
 import { useScroll, motion, useTransform } from 'motion/react'

@@ -16,7 +16,7 @@ interface CardProps {
     children?: React.ReactNode;
 }
 
-function Card({ title, description, imageSrc, imageAlt, reverse = false, className, children }: CardProps) {
+function Card({ title, description, imageSrc, imageAlt, className, children }: CardProps) {
   return (
     <motion.div 
       className={`w-full h-full snap-center px-4 md:px-12 lg:px-16 py-4 md:py-8 flex items-center justify-center ${className}`}
@@ -91,7 +91,7 @@ function Card({ title, description, imageSrc, imageAlt, reverse = false, classNa
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
                 <Image
-                  src={imageSrc as any}
+                  src={imageSrc}
                   alt={imageAlt || title || 'Card image'}
                   fill
                   className="object-cover"

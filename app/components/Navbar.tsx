@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react'
-import { easeIn, motion, AnimatePresence } from "motion/react"
+import {  motion, AnimatePresence } from "motion/react"
 import { Cinzel } from 'next/font/google';
 import amaze from "../../public/amaze_logo.svg"
 const cinzel = Cinzel({ subsets: ['latin'] });
