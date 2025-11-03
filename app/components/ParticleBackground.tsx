@@ -83,7 +83,7 @@ const ParticleBackground: React.FC = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
+      className="fixed top-0 left-0 w-full h-[100%] pointer-events-none z-0"
       style={{ background: 'transparent' }}
     />
   );

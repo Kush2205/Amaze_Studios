@@ -54,7 +54,7 @@ function LandingPage() {
             {/* Game Poster Background with Overlay - Appears First */}
             <motion.div 
                 className='absolute inset-0 z-0'
-                initial={{ opacity: 0, scale: 1.1 }}
+                initial={{ opacity: 1, scale: 1.1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, delay: 0, ease: "easeOut" }}
             >
