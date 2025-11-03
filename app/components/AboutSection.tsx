@@ -2,7 +2,7 @@ import React, { use } from 'react'
 import Card from '../ui/Card'
 import { useRef } from 'react'
 import { useScroll, motion, useTransform } from 'motion/react'
-
+// Images are served from the `public/` directory — use absolute paths (e.g. `/Image1.jpeg`).
 function TrailerSection() {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
@@ -27,16 +27,19 @@ function TrailerSection() {
             <div className="w-screen h-full flex items-center justify-center">
               <Card title='Enter the Eternal City'
                 description='The Tales of Annapurna by Amaze Studios is a cinematic action-adventure set in Kashi, where myth and legend awaken. Built with scanned real-world assets, every ghat, alley, and temple immerses you in the soul of the eternal city.'
+                imageSrc="/Image1.jpeg"
               />
             </div>
             <div className="w-screen h-full flex items-center justify-center">
               <Card title='Awaken Your Destiny'
                 description='When shadows rise and Rakshasas return, the balance of the world hangs by a thread. You step into the journey of Sati, a common girl, unaware of her divine destiny. Through her eyes, you will face demons born of ancient tales and uncover truths hidden in sacred myths.'
+                imageSrc="/Image 2.jpeg"
               />
             </div>
             <div className="w-screen h-full flex items-center justify-center">
               <Card title='Master Ancient Combat'
                 description='Combat flows with the grace and power of Kalarippayattu, an ancient martial art brought to life with unprecedented intensity. Every battle, every choice, draws you closer to the divine spark waiting within. This is not just an adventure—it is a myth reborn, a story of destiny unfolding in the heart of India eternal city.'
+                imageSrc="/Image 3.jpeg"
               />
             </div>
           </motion.div>

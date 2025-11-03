@@ -2,14 +2,14 @@ import React from 'react'
 import { Cinzel } from 'next/font/google';
 import Divider from './divider';
 import { motion } from 'motion/react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 const cinzel = Cinzel({ subsets: ['latin'] });
 
 interface CardProps {
     title?: string;
     description?: string;
-    imageSrc?: string;
+  imageSrc?: string | StaticImageData;
     imageAlt?: string;
     reverse?: boolean;
     className?: string;
@@ -90,10 +90,11 @@ function Card({ title, description, imageSrc, imageAlt, reverse = false, classNa
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                <img 
-                  src={imageSrc} 
-                  alt={imageAlt || title || 'Card image'} 
-                  className="w-full h-full object-cover"
+                <Image
+                  src={imageSrc as any}
+                  alt={imageAlt || title || 'Card image'}
+                  fill
+                  className="object-cover"
                 />
               </motion.div>
             ) : (
